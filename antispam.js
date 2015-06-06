@@ -24,7 +24,9 @@ module.exports.isSpamFile = function(filename) {
 };
 
 module.exports.isSpamString = function(str) {
-    return false;
+    return new Promise(function promiseFunc(fulfill, reject) {
+        fulfill(false);
+    });
 };
 
 module.exports.registerFileGood = function(filename) {
