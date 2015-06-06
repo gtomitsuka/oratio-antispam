@@ -19,6 +19,23 @@ function dbQuery(query, qParams, callback) {
     });
 }
 
+function getWordCount(str) {
+    str = str.toLowerCase();
+    str = str.replace(/[^a-z]/g, ' ');
+    str = str.replace(/\s+/g, ' ');
+    var words = str.split(' ');
+    var wordCount = {};
+    for (var i = 0; i < words.length; i++) {
+        word = words[i];
+        if (word.length > 200)
+            word = word.substr(0, 200);
+        if (!wordCount.hasOwnProperty(word))
+            wordCount[word] = 0;
+        wordCount[word]++;
+    }
+    return wordCount;
+}
+
 module.exports.isSpamFile = function(filename) {
     return module.exports.isSpamString(fs.readFileSync(filename, {encoding:'utf8'}));
 };
