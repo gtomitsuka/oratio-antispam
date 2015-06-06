@@ -44,3 +44,7 @@ module.exports.registerStringBad = function(str) {
 module.exports.truncateKeyword = function(keyword) {
 };
 
+module.exports.endPostgres = function() {
+    pg.end();
+};
+
