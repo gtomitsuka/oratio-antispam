@@ -7,12 +7,12 @@ module.exports.postgreConnStr = '';
 module.exports.tableName = 'antispam';
 
 function dbQuery(query, qParams, callback) {
-    pg.connect(module.exports.postgreConnStr, function(err, client, done) {
+    pg.connect(module.exports.postgreConnStr, function connectCallback(err, client, done) {
         if (err) {
             callback(err, null);
             return;
         }
-        client.query(query, qParams, function(err, result) {
+        client.query(query, qParams, function queryCallback(err, result) {
             done();
             callback(err, result);
         });
