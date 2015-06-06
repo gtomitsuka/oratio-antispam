@@ -1,6 +1,10 @@
 module.exports = {};
 
-module.exports.isSpam = function() {
+module.exports.isSpamFile = function(filename) {
+    return false;
+};
+
+module.exports.isSpamString = function(str) {
     return false;
 };
 
